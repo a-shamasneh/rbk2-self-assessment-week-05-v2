@@ -11,7 +11,7 @@ var User = sequelize.define('User', {
     a GET request with all users in the database */
 
 router.get('/users', function(req, res) {
-User.findOne().then(function (user) {
+User.findOne().then(function (user) {/// am not sure about this query if am retreive all user name from user table or one user 
     console.log(User.get('username'));
 });
 });

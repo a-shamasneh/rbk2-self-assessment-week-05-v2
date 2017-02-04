@@ -19,10 +19,36 @@ angular.module('app', ['ngRoute'])
     are named what $routeProvider and the partials are expecting  */
 
   .factory('counter', function(num){
-  	
+  	$scope.result="";
+  	$scope.counter=0;
   	return{
   		incCount:function(num) {
   			return num++;
+  		},
+  		testnum:function(num){//// this metod work for two pages 
+  			if(num%2!=0){// test if number even or odd
+  				if(num%3==0 && num%5==0){
+  					result="FIZZBUZZ";
+  				}
+  				if(num%3==0 && num%5!==0){
+  					result="FIZZ"
+  				}
+  				if(num%3!==0 && num%5==0){
+  					result="BUZZ"
+  				}
+  			}
+  			else{//// if number is even 
+
+  				if(num%4==0 && num%6==0){
+  					result="FOZZBAZZ"
+  				}
+  				if(num%4==0 && num%6!==0){
+  					result="FOZZ"
+  				}
+  				if(num%4!==0 && num%6==0){
+  					result="BAZZ"
+  				}
+  			}
   		}
   	}
   })
@@ -30,6 +56,10 @@ angular.module('app', ['ngRoute'])
   	$scope.count=0;
    $scope.click=function ($scope.count) {
     counter.incCount($scope.count);
+    return $scope.count;
+   }
+   $scope.result=function(){
+   	counter.testnum($scope.count);
    }
 
   })
@@ -40,5 +70,9 @@ angular.module('app', ['ngRoute'])
     $scope.count=0;
    $scope.click=function ($scope.count) {
     counter.incCount($scope.count);
+    return scope.count;
+   }
+   $scope.result=function(){
+   	countr.testnum($scope.count);
    }
   });

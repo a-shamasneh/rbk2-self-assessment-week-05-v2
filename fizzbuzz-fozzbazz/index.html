@@ -9,10 +9,10 @@
   <body>
     <div ng-app="app">
       <nav>
-        <a href="#/fizzbuzz">Fizzbuzz</a>
-        <a href="#/fozzbazz">Fozzbazz</a>
+        <a href="#/fizzbuzz" ng-controller="fizzbuzzCtrl" ng-click='result()'>Fizzbuzz</a>
+        <a href="#/fozzbazz" ng-controller="fizzbuzzCtrl" ng-click='result()'>Fozzbazz</a>
       </nav>
-      <div ng-view></div>
+      <div ng-view="count"></div>
     </div>
   </body>
 </html>
