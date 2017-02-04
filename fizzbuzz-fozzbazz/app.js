@@ -18,6 +18,27 @@ angular.module('app', ['ngRoute'])
 /*  HINT: Make sure your controllers, methods, and variables 
     are named what $routeProvider and the partials are expecting  */
 
-  .factory('counter', function(){})
-  .controller('fizzbuzzCtrl', function(){})
-  .controller('fozzbazzCtrl', function(){});
+  .factory('counter', function(num){
+  	
+  	return{
+  		incCount:function(num) {
+  			return num++;
+  		}
+  	}
+  })
+  .controller('fizzbuzzCtrl', function(counter){
+  	$scope.count=0;
+   $scope.click=function ($scope.count) {
+    counter.incCount($scope.count);
+   }
+
+  })
+
+
+  .controller('fozzbazzCtrl', function(counter){
+
+    $scope.count=0;
+   $scope.click=function ($scope.count) {
+    counter.incCount($scope.count);
+   }
+  });
